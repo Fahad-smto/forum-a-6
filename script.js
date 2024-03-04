@@ -119,6 +119,16 @@ const displayData = data =>{
     });
 }
 
+
+const searchButton =()=>{
+  const searchFild = document.getElementById('search-fild');
+  const searchText = searchFild.value;
+  console.log(searchText);
+}
+
+
+
+
 foram2()
 
 foram()
