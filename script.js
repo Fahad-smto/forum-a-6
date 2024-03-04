@@ -92,7 +92,7 @@ const displayData = data =>{
           <img src="${card1.cover_image}" alt="Shoes" class="rounded-xl" />
         </figure>
         <div class="card-body ">
-          <h2 class=""> <i class="fa-regular fa-calendar-days"></i> ${card1.author.posted_date}</h2>
+          <h2 class=""> <i class="fa-regular fa-calendar-days"></i> ${card1.author.posted_date ? card1.author.posted_date : "No publish date"}</h2>
           <p class="font-bold text-xl">${card1.title}</p>
           <p class="mt-2">${card1.description}</p>
           <div class="card-actions flex">
@@ -107,7 +107,7 @@ const displayData = data =>{
              </div>
              <div class="">
               <p>${card1.author.name}</p>
-               <p>${card1.author.designation ? card1.author.designation:"no publish date"}</p>
+               <p>${card1.author.designation ? card1.author.designation:"Unknown"}</p>
              </div>
           </div>
         </div>
