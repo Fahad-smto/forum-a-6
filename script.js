@@ -22,7 +22,7 @@ const cardContainer = document.getElementById('card-container');
   <div class="rounded-lg p-4 mx-6 flex">
    <div class="">
 <h1 class="mx-3"> 
-  <div class="avatar online">
+  <div  class="avatar online ${card1.isActive? 'green': 'red' }">
     <div class="w-24 rounded-full">
     <img src="${card.image}" />
     </div>
@@ -54,7 +54,7 @@ const cardContainer = document.getElementById('card-container');
           <span class="text-gray-500">${card.posted_time}</span>
       </div>
       <!-- <div class="h-5 w-5 text-green-500"><i class="fa-regular fa-envelope-open"></i></div> -->
-      <button class="btn rounded-full h-5 w-5 text-white  bg-green-400"><i class="fa-regular fa-envelope-open"></i></button>
+      <button onclick ='title(${card.title})' class="btn rounded-full h-5 w-5 text-white  bg-green-400"><i class="fa-regular fa-envelope-open"></i></button>
       <!-- <div class="h-5 w-5 text-green-500"><i class="fa-regular fa-envelope-open"></i></div> -->
   </div>
    </div>
@@ -66,11 +66,15 @@ cardContainer.appendChild(card1);
     });
 }
 
+const title = (text) =>{
+  console.log(text);
+}
+
 
 const foram2 = async () =>{
     const res = await fetch(' https://openapi.programming-hero.com/api/retro-forum/latest-posts');
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     displayData(data);
 }
 
@@ -79,7 +83,7 @@ const displayData = data =>{
     const cardContainer = document.getElementById('footer-card-container') 
 
     data.forEach(card1=>{
-        console.log(card1);
+        // console.log(card1);
         const card2 = document.createElement('div');
         card2.innerHTML = `
         
@@ -103,7 +107,7 @@ const displayData = data =>{
              </div>
              <div class="">
               <p>${card1.author.name}</p>
-              <p>${card1.author.designation}</p>
+               <p>${card1.author.designation ? card1.author.designation:"no publish date"}</p>
              </div>
           </div>
         </div>
